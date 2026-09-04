@@ -34,11 +34,17 @@ node src/cli.mjs issue create owner/name --title "fixture smoke" --body "safe" -
 ```
 
 The package intentionally does not install a global `gh`, alter PATH, or
-publish to npm. A pinned GitHub install is:
+publish to npm. A pinned GitHub archive install (which does not require the
+Git transport) is:
 
 ```text
-npm install --global git+https://github.com/Rainflowers686/deepseek-harness-minimal-omni.git#v0.1.0-preview.1
+npm install --global https://github.com/Rainflowers686/deepseek-harness-minimal-omni/archive/refs/tags/v0.1.0-preview.1.tar.gz
 ```
+
+The equivalent pinned Git source is
+`git+https://github.com/Rainflowers686/deepseek-harness-minimal-omni.git#v0.1.0-preview.1`.
+If a local network blocks Git HTTPS while allowing GitHub API/archive traffic,
+use the archive form; it contains the same reviewed tag.
 
 For a reversible smoke test, use an isolated npm prefix instead of the global
 prefix. To update, install a reviewed tag and rerun all four checks. To roll
