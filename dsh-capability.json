@@ -28,8 +28,8 @@
   },
   "install": {
     "source": "github",
-    "directInstall": "npm install --global git+https://github.com/Rainflowers686/deepseek-harness-minimal-omni.git#v0.1.0-preview.1",
-    "directArchiveInstall": "npm install --global https://github.com/Rainflowers686/deepseek-harness-minimal-omni/archive/refs/tags/v0.1.0-preview.1.tar.gz",
+    "directInstall": "npm install --global git+https://github.com/Rainflowers686/deepseek-harness-minimal-omni.git#v0.1.0-preview.2",
+    "directArchiveInstall": "npm install --global https://github.com/Rainflowers686/deepseek-harness-minimal-omni/archive/refs/tags/v0.1.0-preview.2.tar.gz",
     "node": ">=20",
     "gh": ">=2.0"
   }
