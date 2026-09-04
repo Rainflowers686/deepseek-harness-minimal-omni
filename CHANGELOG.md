@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0-preview.1
+## 0.1.0-preview.2
 
 - Added a least-privilege GitHub capability over the official `gh` CLI.
 - Added repository, issue, pull request, workflow, and release read operations.
