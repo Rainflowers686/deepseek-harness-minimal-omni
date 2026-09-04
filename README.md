@@ -38,11 +38,11 @@ publish to npm. A pinned GitHub archive install (which does not require the
 Git transport) is:
 
 ```text
-npm install --global https://github.com/Rainflowers686/deepseek-harness-minimal-omni/archive/refs/tags/v0.1.0-preview.1.tar.gz
+npm install --global https://github.com/Rainflowers686/deepseek-harness-minimal-omni/archive/refs/tags/v0.1.0-preview.2.tar.gz
 ```
 
 The equivalent pinned Git source is
-`git+https://github.com/Rainflowers686/deepseek-harness-minimal-omni.git#v0.1.0-preview.1`.
+`git+https://github.com/Rainflowers686/deepseek-harness-minimal-omni.git#v0.1.0-preview.2`.
 If a local network blocks Git HTTPS while allowing GitHub API/archive traffic,
 use the archive form; it contains the same reviewed tag.
 
