@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "minimal-omni.github",
+  "displayName": "Minimal Omni GitHub capability",
+  "releaseChannel": "developer-preview",
+  "transport": "github-cli",
+  "executable": "gh",
+  "defaultMode": "read-only",
+  "writePolicy": "explicit-opt-in-per-operation",
+  "operations": [
+    "repo.view",
+    "repo.list",
+    "issue.list",
+    "issue.view",
+    "issue.create",
+    "pr.list",
+    "pr.view",
+    "workflow.list",
+    "release.list"
+  ],
+  "constraints": {
+    "noArbitraryArguments": true,
+    "noShell": true,
+    "noCredentialLogging": true,
+    "readBodiesOnlyWhenRequested": true,
+    "writesRequireAllowWrite": true,
+    "host": "github.com"
+  },
+  "install": {
+    "source": "github",
+    "directInstall": "npm install --global git+https://github.com/Rainflowers686/deepseek-harness-minimal-omni.git#v0.1.0-preview.1",
+    "node": ">=20",
+    "gh": ">=2.0"
+  }
+}
