@@ -36,9 +36,19 @@ jobs:
             '00_Research',
             '90_Temp'
           )
+          $root = (Get-Location).Path
+          $files = Get-ChildItem -LiteralPath $root -Recurse -Force -File |
+            Where-Object {
+              $_.FullName -notmatch '\\.git\\' -and
+              $_.FullName -notmatch '\\node_modules\\' -and
+              $_.FullName -ne (Join-Path $root '.github/workflows/ci.yml')
+            }
           foreach ($pattern in $patterns) {
-            $hits = rg --hidden --glob '!.git/**' --glob '!node_modules/**' --glob '!.github/workflows/ci.yml' -n -i -- $pattern . 2>$null
-            if ($LASTEXITCODE -eq 0 -and $hits) { $hits; exit 1 }
+            $hits = $files | Select-String -Pattern $pattern -CaseSensitive:$false
+            if ($hits) {
+              $hits | ForEach-Object { "${($_.Path)}:${($_.LineNumber)}:${($_.Line)}" }
+              exit 1
+            }
           }
       - name: README command consistency
         shell: pwsh
