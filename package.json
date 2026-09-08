@@ -1,26 +1,8 @@
 {
-  "name": "deepseek-harness-minimal-omni-github",
-  "version": "0.1.0-preview.2",
-  "description": "A least-privilege GitHub capability for Minimal Omni, using the authenticated GitHub CLI without arbitrary shell execution.",
+  "name": "@rain/minimal-omni-public-preview",
+  "version": "0.2.0-preview.1",
+  "private": true,
   "type": "module",
-  "bin": {
-    "dsh-github": "src/cli.mjs"
-  },
-  "engines": {
-    "node": ">=20"
-  },
-  "scripts": {
-    "test": "node --test",
-    "check": "node --check src/gh-client.mjs && node --check src/cli.mjs && node --check scripts/secret-scan.mjs && node --check scripts/verify-install.mjs",
-    "secret-scan": "node scripts/secret-scan.mjs",
-    "verify-install": "node scripts/verify-install.mjs"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Rainflowers686/deepseek-harness-minimal-omni.git"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+  "description": "Clean public-preview staging for DeepSeek Harness Minimal Omni",
+  "scripts": { "test": "node --test tests/*.test.mjs" }
 }
