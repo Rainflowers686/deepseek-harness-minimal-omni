@@ -12,4 +12,4 @@ Experimental. Vision, Web Search, and authenticated GitHub actions are
 Conditional. Desktop automation, ASR, broad audio/video semantic understanding,
 and cross-Agent handoff/portability are Deferred.
 
-This is a local draft and not a published release.
+This is a Developer Preview, not a stable or production-certified release.
