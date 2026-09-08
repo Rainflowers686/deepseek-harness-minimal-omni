@@ -1,0 +1,24 @@
+# One public bundle for the Minimal Omni preview.
+#
+# The broker stays in the per-session Minimal Omni preset. The governor is a
+# host/root row so every stream owned by the Web runtime crosses the same
+# admission point. In normal community mode it is inert until an explicit
+# acceptance budget is supplied; maintainer acceptance mode enables the strict
+# isolation and ledger checks through environment variables.
+- insert:
+    - id: minimal-omni-provider-request-governor
+      name: './plugins/provider-request-governor/index.js'
+      config:
+        requireIsolation: false
+
+# Add the package-shipped preset root without changing the user's default.
+# The pinned CLI evaluates bundle expressions against the profile directory, so
+# resolve the installed distribution package through the profile's node_modules.
+- id: agent-presets
+  config:
+    default: standard
+    roots:
+      - path: !!js "process.getBuiltinModule('node:url').fileURLToPath(new URL('node_modules/@rain/minimal-omni/presets/', baseUrl))"
+        trust: system
+    includeShippedRoot: true
+    includeUserRoot: true

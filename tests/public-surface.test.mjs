@@ -24,9 +24,9 @@ test('public staging includes the model-invisible request governor and isolation
 })
 
 test('public staging freezes compaction as inherited/experimental rather than a 0.68 default', () => {
-  const profile = readFileSync(resolve(root, 'profile/agent.cordis.yml'), 'utf8')
+  const profile = readFileSync(resolve(root, 'presets/minimal-omni/agent.cordis.yml'), 'utf8')
   const readme = readFileSync(resolve(root, 'README.md'), 'utf8')
   assert.doesNotMatch(profile, /thresholdRatio\s*:\s*0\.68/u)
   assert.match(readme, /Experimental/u)
-  assert.match(readme, /No custom `0\.68` compaction override/u)
+  assert.match(readme, /(?:No custom|does not ship a custom) `0\.68` compaction override/u)
 })

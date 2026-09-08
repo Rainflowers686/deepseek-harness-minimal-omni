@@ -12,11 +12,34 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Run package tests
+        shell: pwsh
+        run: node --test tests/*.test.mjs
       - name: Syntax check
         shell: pwsh
-        run: node --check plugins/capability-broker/index.js
-      - name: Public path and secret review
+        run: |
+          Get-ChildItem -Recurse -File -Include *.js,*.mjs | ForEach-Object { node --check $_.FullName }
+      - name: Validate public package manifest
         shell: pwsh
         run: |
-          $hits = Get-ChildItem -Recurse -File | Select-String -Pattern 'D:\\AAAbiancheng|C:\\Users\\|api[_-]?key|access[_-]?token|client[_-]?secret'
-          if ($hits) { $hits | Out-String; exit 1 }
+          node -e "const p=require('./package.json'); if(p.private===true||p.version!=='0.2.0-preview.2'||!p.dsh?.bundle?.patch||!p.exports?.['./cordis.patch.yml']) process.exit(1)"
+          npm pack --ignore-scripts --dry-run --json | Out-Null
+      - name: Public path, forbidden artifact, and secret review
+        shell: pwsh
+        run: |
+          $patterns = @(
+            'D:\\AAAbiancheng',
+            'C:\\Users\\',
+            'api[_-]?key',
+            'access[_-]?token',
+            'client[_-]?secret',
+            '00_Research',
+            '90_Temp'
+          )
+          foreach ($pattern in $patterns) {
+            $hits = rg --hidden --glob '!.git/**' --glob '!node_modules/**' --glob '!.github/workflows/ci.yml' -n -i -- $pattern . 2>$null
+            if ($LASTEXITCODE -eq 0 -and $hits) { $hits; exit 1 }
+          }
+      - name: README command consistency
+        shell: pwsh
+        run: node --test tests/readme-quickstart.test.mjs

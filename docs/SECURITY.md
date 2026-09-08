@@ -1,18 +1,27 @@
-# Security boundary
+# Security
 
-The launcher requires an explicit isolated `DSH_HOME`, writes a fresh
-sentinel, and re-attests the child before acceptance. Default-home and
-junction/path escapes fail closed. Capability leases use owned workspace roots;
-browser profiles/downloads, document extraction, ZIP listings, screenshots,
-and job output are bounded.
+## Normal community use
 
-Acceptance provider attempts pass through one Host/root Provider Request
-Governor and shared ledger, including agent, retry, Goal, compaction, direct
-LLM, and auxiliary calls. Tool deadlines are below the turn boundary and the
-turn boundary is below the external watchdog. Governance is model-invisible;
-it adds no planner, reviewer, workflow, or budget coaching.
+- The package uses the user's existing DSH_HOME and Web profile; it does not
+  ask for an isolated home or an acceptance ledger.
+- It does not change provider settings, credentials, proxies, default presets,
+  or permissions.
+- Capability leases are scoped to the current agent and session workspace.
+- Browser profiles, downloads, screenshots, jobs, and child processes are
+  owned and cleaned up by the runtime.
+- Unsupported Vision routes are rejected before `read_image`; there is no
+  hidden second model.
 
-Credentials, cookies, sessions, private project bodies, provider responses,
-and research traces are not release artifacts. Vision is blocked before
-`read_image` for known unsupported routes and remains unverified for unknown
-routes.
+## Maintainer acceptance mode
+
+CI and maintainer validation can explicitly enable the Provider Request
+Governor, DSH_HOME guard, fresh process attestation, and shared ledger. Those
+checks are release tooling, not a hidden budget for ordinary users. The
+governor remains model-invisible: it does not add planning, reflection,
+reviewer, or budget coaching to prompts or tool schemas.
+
+## Reporting
+
+Do not include API keys, cookies, credentials, private paths, provider
+responses, or raw session logs in issues. See the issue templates for the
+minimum compatibility information needed to reproduce a problem.
