@@ -1,0 +1,51 @@
+name: Compatibility issue
+description: Report a DSH version or platform compatibility problem
+title: "[compatibility] "
+labels: ["compatibility"]
+body:
+  - type: input
+    id: os
+    attributes:
+      label: OS
+    validations:
+      required: true
+  - type: input
+    id: dsh_version
+    attributes:
+      label: DSH version and commit
+    validations:
+      required: true
+  - type: input
+    id: minimal_omni_version
+    attributes:
+      label: Minimal Omni version
+    validations:
+      required: true
+  - type: textarea
+    id: install_command
+    attributes:
+      label: Install command
+      description: Remove credentials and private paths before posting.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "Do not post API keys, cookies, credentials, or raw private session logs."

@@ -1,5 +1,6 @@
-# Minimal Omni public-preview profile. Keep the official Minimal persona and
-# request prepared-world capabilities only through the broker.
+# Minimal Omni keeps the official Minimal brain and leases capabilities only
+# while a session needs them. The broker is a preset row, so other presets stay
+# unchanged after the bundle is installed.
 - id: persona
   name: '@deepseek-ai/dsh-persona'
   config:
@@ -44,7 +45,7 @@
       name: '@deepseek-ai/dsh-tool-str-replace-editor'
 
 - id: capability-broker
-  name: '@rain/minimal-omni-capability-broker'
+  name: '../../plugins/capability-broker/index.js'
 
 - id: compaction
   name: cordis:group

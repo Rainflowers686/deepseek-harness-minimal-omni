@@ -1,0 +1,54 @@
+name: Bug report
+description: Report a reproducible Minimal Omni problem
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      placeholder: Windows 11
+    validations:
+      required: true
+  - type: input
+    id: dsh_version
+    attributes:
+      label: DSH version
+      placeholder: dsh-v0.1.2-rc.1
+    validations:
+      required: true
+  - type: input
+    id: minimal_omni_version
+    attributes:
+      label: Minimal Omni version
+      placeholder: v0.2.0-preview.2
+    validations:
+      required: true
+  - type: textarea
+    id: install_command
+    attributes:
+      label: Install command
+      description: Paste the command, but remove credentials or private paths.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "Do not post API keys, cookies, credentials, or raw private session logs."

@@ -1,7 +1,12 @@
-# Public-preview documents
+# Documentation
 
-The package README and `CAPABILITY_MATRIX.md` are the source of truth for the
-frozen Supported / Experimental / Conditional / Deferred declarations. The
-preview records provider- and route-dependent behavior honestly; it does not
-turn backend fixtures or unproven modality combinations into universal
-support claims.
+- [Install](INSTALL.md)
+- [Usage](USAGE.md)
+- [Capabilities](CAPABILITIES.md)
+- [Capability matrix (English)](CAPABILITY_MATRIX.md)
+- [能力矩阵（简体中文）](CAPABILITY_MATRIX_CN.md)
+- [Troubleshooting](TROUBLESHOOTING.md)
+- [Architecture](ARCHITECTURE.md)
+- [Security](SECURITY.md)
+- [Compatibility](COMPATIBILITY.md)
+- [Development](DEVELOPMENT.md)

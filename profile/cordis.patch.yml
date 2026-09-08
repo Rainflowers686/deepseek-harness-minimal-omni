@@ -1,6 +1,0 @@
-# Select the public-preview preset as the profile default.
-- id: agent-presets
-  config:
-    default: minimal-omni
-    includeShippedRoot: true
-    includeUserRoot: true

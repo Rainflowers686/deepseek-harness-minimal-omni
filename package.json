@@ -1,8 +1,64 @@
 {
-  "name": "@rain/minimal-omni-public-preview",
-  "version": "0.2.0-preview.1",
-  "private": true,
+  "name": "@rain/minimal-omni",
+  "version": "0.2.0-preview.2",
   "type": "module",
-  "description": "Clean public-preview staging for DeepSeek Harness Minimal Omni",
-  "scripts": { "test": "node --test tests/*.test.mjs" }
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "description": "Minimal-by-default capability bundle for DeepSeek Harness",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rainflowers686/deepseek-harness-minimal-omni.git"
+  },
+  "bugs": { "url": "https://github.com/Rainflowers686/deepseek-harness-minimal-omni/issues" },
+  "homepage": "https://github.com/Rainflowers686/deepseek-harness-minimal-omni#readme",
+  "engines": { "node": ">=22.19.0" },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "plugins/capability-broker/*.js",
+    "plugins/capability-broker/*.mjs",
+    "plugins/provider-request-governor/index.js",
+    "presets/minimal-omni/*.yml",
+    "src/isolation-guard.mjs",
+    "docs/**/*.md",
+    "README.md",
+    "README.zh-CN.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "PROVENANCE.md",
+    "tests/**/*.mjs"
+  ],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/dsh-scope": "*",
+    "@deepseek-ai/dsh-tool-fs": "*",
+    "@deepseek-ai/dsh-tool-fs-search": "*",
+    "@deepseek-ai/dsh-tool-lsp": "*",
+    "@deepseek-ai/dsh-tool-web": "*",
+    "@deepseek-ai/dsh-tool-jobs": "*",
+    "@deepseek-ai/dsh-tool-goal": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-tools": { "optional": true },
+    "@deepseek-ai/dsh-scope": { "optional": true },
+    "@deepseek-ai/dsh-tool-fs": { "optional": true },
+    "@deepseek-ai/dsh-tool-fs-search": { "optional": true },
+    "@deepseek-ai/dsh-tool-lsp": { "optional": true },
+    "@deepseek-ai/dsh-tool-web": { "optional": true },
+    "@deepseek-ai/dsh-tool-jobs": { "optional": true },
+    "@deepseek-ai/dsh-tool-goal": { "optional": true }
+  }
 }
