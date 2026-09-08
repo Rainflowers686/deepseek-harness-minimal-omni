@@ -1,23 +1,22 @@
-name: CI
+name: minimal-omni-public-preview
 
 on:
   push:
   pull_request:
 
-permissions:
-  contents: read
-
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
+  static:
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
-      - run: node --version
-      - run: npm test
-      - run: npm run check
-      - run: npm run verify-install
-      - run: npm run secret-scan
+          node-version: 22
+      - name: Syntax check
+        shell: pwsh
+        run: node --check plugins/capability-broker/index.js
+      - name: Public path and secret review
+        shell: pwsh
+        run: |
+          $hits = Get-ChildItem -Recurse -File | Select-String -Pattern 'D:\\AAAbiancheng|C:\\Users\\|api[_-]?key|access[_-]?token|client[_-]?secret'
+          if ($hits) { $hits | Out-String; exit 1 }

@@ -1,0 +1,13 @@
+{
+  "name": "@rain/minimal-omni-capability-broker",
+  "version": "0.1.0-dev.1",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "files": ["index.js", "boundaries.mjs", "vision-route-gate.mjs", "cordis.patch.yml"],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

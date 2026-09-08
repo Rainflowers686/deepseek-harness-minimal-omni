@@ -1,0 +1,5 @@
+- insert:
+    - id: minimal-omni-provider-request-governor
+      name: '@rain/minimal-omni-provider-request-governor'
+      config:
+        requireIsolation: true

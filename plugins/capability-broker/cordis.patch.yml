@@ -1,0 +1,3 @@
+- insert:
+    - id: minimal-omni-capability-broker
+      name: '@rain/minimal-omni-capability-broker'

@@ -1,9 +1,13 @@
 # Changelog
 
-## 0.1.0-preview.2
+## 0.2.0-preview.1 (Developer Preview draft)
 
-- Added a least-privilege GitHub capability over the official `gh` CLI.
-- Added repository, issue, pull request, workflow, and release read operations.
-- Added explicitly gated issue creation for isolated fixture acceptance.
-- Added bounded diagnostics, credential-looking output redaction, local checks,
-  and GitHub Actions CI.
+- Frozen the Supported / Experimental / Conditional / Deferred capability
+  contract.
+- Preserved the official Minimal brain and model-invisible runtime governance.
+- Added fail-closed Vision route gating and removed any implication of a
+  stable custom `0.68` compaction override.
+- Prepared Windows CI, provenance, and public-safe release documentation.
+
+No public remote, tag, release, or community announcement is made by this
+local staging phase.

@@ -1,55 +1,68 @@
-# Minimal Omni GitHub Capability
+# DeepSeek Harness Minimal Omni — Developer Preview
 
-`deepseek-harness-minimal-omni-github` is a developer-preview capability for
-Minimal Omni. It exposes a deliberately small, allow-listed subset of GitHub
-operations through the authenticated `gh` CLI. It is not a general shell
-bridge and it does not read or emit credentials.
+Minimal Omni keeps the official Minimal brain small and leases bounded
+environmental capabilities only when requested. The public preview is a
+Windows-first composition for the pinned DeepSeek Harness runtime. “Omni” is
+an architectural direction, not a promise that every provider and modality is
+fully certified.
 
-## Security model
+## Quick start
 
-- Read-only is the default. The only write operation currently exposed is
-  `issue.create`, and it requires the explicit `--allow-write` flag.
-- Arguments are constructed from validated owner/name, number, limit, title,
-  and body fields. There is no arbitrary `gh` argument or shell escape hatch.
-- The child process is started with `shell: false` and `GH_HOST=github.com`.
-- Error output is bounded and scrubbed for credential-looking material before
-  it reaches a caller.
-- Authentication remains owned by `gh auth` (keyring/credential helper). Do
-  not put tokens, passwords, or login files in this repository or in logs.
+Use an isolated DSH checkout, an explicit task workspace, and an explicit
+isolated `DSH_HOME`:
 
-## Local use
-
-Requirements: Node.js 20 or newer and GitHub CLI 2 or newer. Authenticate once
-with the official CLI (`gh auth login`) and keep the login path in the CLI
-credential store.
-
-```text
-npm test
-npm run check
-npm run verify-install
-npm run secret-scan
-node src/cli.mjs repo view owner/name
-node src/cli.mjs issue list owner/name --limit 20
-node src/cli.mjs issue create owner/name --title "fixture smoke" --body "safe" --allow-write
+```powershell
+pwsh -NoProfile -File install/install-minimal-omni.ps1 `
+  -DshRoot <isolated-dsh-checkout> `
+  -DshHome <isolated-dsh-home>
+pwsh -NoProfile -File install/start-minimal-omni.ps1 `
+  -Workspace <task-workspace> `
+  -DshHome <isolated-dsh-home>
 ```
 
-The package intentionally does not install a global `gh`, alter PATH, or
-publish to npm. A pinned GitHub archive install (which does not require the
-Git transport) is:
+The launcher rejects the user's default `.dsh`, verifies a fresh isolation
+sentinel, and owns the child process tree. Stop and rollback with the supplied
+scripts and the same explicit roots.
 
-```text
-npm install --global https://github.com/Rainflowers686/deepseek-harness-minimal-omni/archive/refs/tags/v0.1.0-preview.2.tar.gz
-```
+## Compatibility
 
-The equivalent pinned Git source is
-`git+https://github.com/Rainflowers686/deepseek-harness-minimal-omni.git#v0.1.0-preview.2`.
-If a local network blocks Git HTTPS while allowing GitHub API/archive traffic,
-use the archive form; it contains the same reviewed tag.
+Supported pin: `dsh-v0.1.2-rc.1`
+(`a66e4702047846cdaa10c66c9d3df3951f5ea70d`). The alpha line is not silently
+claimed compatible.
 
-For a reversible smoke test, use an isolated npm prefix instead of the global
-prefix. To update, install a reviewed tag and rerun all four checks. To roll
-back, reinstall the previous reviewed tag or remove only this package; the
-GitHub CLI credential store is independent and is not modified by the package.
+## Capability tiers
 
-This release is a developer preview. It is not a promise of stable API
-compatibility and it does not perform model calls.
+**Supported / live-tested:** Official Minimal brain, `pwsh`,
+`str_replace_editor`, capability-on-demand, Code/LSP, Web fetch, Browser, PDF
+and DOCX and ZIP documents, Jobs, native Goal, native manual `/compact`,
+session reload continuation, integrated coding, Provider Request Governor,
+`DSH_HOME` Isolation Guard, Tool Execution Boundary, Turn Governor, external
+watchdog, owned-process cleanup, install/doctor/rollback.
+
+**Experimental:** XLSX/PPTX model-facing workflows, Goal continuity across a
+successful compaction, automatic compaction tuning/threshold behavior, and
+optional media metadata/frame extraction. No custom `0.68` compaction override
+is shipped as a stable default.
+
+**Conditional:** Vision requires an image-capable selected route; Web Search
+requires a configured search provider; authenticated GitHub actions require
+explicit GitHub authorization.
+
+**Deferred:** Windows desktop automation, ASR, broad audio/video semantic
+understanding, and cross-Agent handoff/portability.
+
+## Governance and security
+
+The Provider Request Governor admits every provider stream before dispatch in
+acceptance mode, including retries, Goal, compaction, and auxiliary calls.
+Tool/turn/watchdog boundaries, bounded outputs, explicit workspace roots,
+child-side `DSH_HOME` attestation, owned-process cleanup, and factual first-aid
+metadata are runtime controls. They do not inject planning, reflection,
+reviewer, workflow, or budget instructions into the model.
+
+Credentials, sessions, raw provider responses, private projects, research
+traces, and absolute workstation paths are excluded from this staging tree.
+
+## License
+
+MIT. See `LICENSE`, `NOTICE.md`, `THIRD_PARTY_NOTICES.md`, and `PROVENANCE.md`.
