@@ -1,9 +1,10 @@
 # Minimal Omni
 
+[English](README.md) | 简体中文
+
 让 DeepSeek Harness 默认保持精简。任务需要浏览器、文档或代码导航时，
 Minimal Omni 才为当前会话申请对应能力，完成后再释放。
 
-[English](README.md) · [简体中文](README.zh-CN.md)
 
 Minimal Omni 是独立的 Developer Preview，不替换官方 Web 应用，也不会改动
 你的 provider、模型或凭据设置。

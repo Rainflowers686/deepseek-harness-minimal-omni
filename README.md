@@ -1,5 +1,7 @@
 # Minimal Omni
 
+English | [简体中文](README.zh-CN.md)
+
 Keep DeepSeek Harness minimal by default. When a task needs a browser,
 documents, or code navigation, Minimal Omni lets the session request that
 capability and release it when the task is done.
