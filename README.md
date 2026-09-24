@@ -2,11 +2,13 @@
 
 *On-demand tools for a minimal-by-default DeepSeek Harness session.*
 
+![DeepSeek Harness](https://img.shields.io/badge/DeepSeek-Harness-24292F) ![Plugin](https://img.shields.io/badge/Type-Plugin-0366D6) ![Developer preview](https://img.shields.io/badge/Status-Developer%20preview-6F42C1)
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+
 
 **Guide:** [Why use it](#why-use-it) · [Install](#install) · [Use](#use) · [Security notes](#security-notes)
 
+[English](README.md) | [简体中文](README.zh-CN.md)
 
 Keep DeepSeek Harness minimal by default. When a task needs a browser,
 documents, or code navigation, Minimal Omni lets the session request that
