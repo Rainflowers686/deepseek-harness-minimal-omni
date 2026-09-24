@@ -2,11 +2,13 @@
 
 *让 DeepSeek Harness 会话默认精简，并按需启用工具。*
 
+![DeepSeek Harness](https://img.shields.io/badge/DeepSeek-Harness-24292F) ![Plugin](https://img.shields.io/badge/Type-Plugin-0366D6) ![Developer preview](https://img.shields.io/badge/Status-Developer%20preview-6F42C1)
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+
 
 **导航：**[为什么使用](#为什么使用它) · [安装](#安装) · [使用](#使用) · [安全提示](#安全提示)
 
+[English](README.md) | [简体中文](README.zh-CN.md)
 
 让 DeepSeek Harness 默认保持精简。任务需要浏览器、文档或代码导航时，
 Minimal Omni 才为当前会话申请对应能力，完成后再释放。
