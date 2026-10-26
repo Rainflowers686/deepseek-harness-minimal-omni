@@ -22,6 +22,15 @@ reviewer, or budget coaching to prompts or tool schemas.
 
 ## Reporting
 
-Do not include API keys, cookies, credentials, private paths, provider
-responses, or raw session logs in issues. See the issue templates for the
-minimum compatibility information needed to reproduce a problem.
+If GitHub shows **Report a vulnerability** on the repository's Security tab,
+use that private form. Otherwise, open an issue asking for a private contact,
+without exploit details or sensitive attachments. Wait for that contact before
+sending a reproduction that could expose data.
+
+Include the DSH version, plugin version, affected capability and a minimal
+reproduction using synthetic files. Do not include API keys, cookies,
+credentials, private paths, provider responses or raw session logs.
+
+The supported runtime is the pin in [Compatibility](COMPATIBILITY.md).
+Other DSH versions and experimental capabilities need separate verification.
+There is no guaranteed response time or backport schedule.

@@ -1,26 +1,22 @@
-# Minimal Omni
+<div align="center">
 
-*On-demand tools for a minimal-by-default DeepSeek Harness session.*
+# **Minimal Omni**
 
-![DeepSeek Harness](https://img.shields.io/badge/DeepSeek-Harness-24292F) ![Plugin](https://img.shields.io/badge/Type-Plugin-0366D6) ![Developer preview](https://img.shields.io/badge/Status-Developer%20preview-6F42C1)
+On-demand tools for a minimal-by-default DeepSeek Harness session.
 
+Request browser, document and code-navigation capabilities when a task needs them, then release them without changing your model, provider or credentials.
 
+[![Version](https://img.shields.io/badge/version-0.2.0--preview.2-blue)](CHANGELOG.md) [![MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![DeepSeek Harness](https://img.shields.io/badge/DeepSeek-Harness-24292F)](docs/COMPATIBILITY.md) [![Developer preview](https://img.shields.io/badge/status-developer%20preview-6F42C1)](#compatibility)
 
-**Guide:** [Why use it](#why-use-it) · [Install](#install) · [Use](#use) · [Security notes](#security-notes)
+[English](README.md) · [简体中文](README.zh-CN.md)
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+[Install](#install) · [Use](#use) · [Capabilities](#what-is-included) · [Compatibility](#compatibility) · [Docs and contributing](#docs-and-contributing)
 
-Keep DeepSeek Harness minimal by default. When a task needs a browser,
-documents, or code navigation, Minimal Omni lets the session request that
-capability and release it when the task is done.
-
-
-Minimal Omni is an independent Developer Preview for DeepSeek Harness. It
-does not replace the official Web app or change your provider settings.
+</div>
 
 ## Project status
 
-Developer preview. Minimal Omni requests and releases browser, document or code-navigation capabilities when a task needs them.
+Minimal Omni is an independent developer-preview plugin loaded through the DSH profile-bundle interface. You continue to use the official Web app. The supported capabilities and runtime pin are documented below.
 
 ## Why use it?
 
@@ -89,7 +85,7 @@ default; automatic compaction tuning remains Experimental.
 
 ## Compatibility
 
-The tested runtime is `dsh-v0.1.2-rc.1` at commit
+The package requires Node.js 22.19+ and PowerShell 7. The tested runtime is `dsh-v0.1.2-rc.1` at commit
 `a66e4702047846cdaa10c66c9d3df3951f5ea70d`. Windows is the first supported
 platform. See [COMPATIBILITY.md](docs/COMPATIBILITY.md) before trying another
 DSH build.
@@ -107,11 +103,16 @@ DSH build.
 More detail is in [SECURITY.md](docs/SECURITY.md) and
 [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
 
-## Development
+<a id="development"></a>
 
-Read [DEVELOPMENT.md](docs/DEVELOPMENT.md) for local package tests and the
-maintainer-only acceptance mode. No provider key is needed for the static and
-packaging checks.
+## Docs and contributing
+
+- [Capability matrix](docs/CAPABILITY_MATRIX.md): verified, conditional, experimental and deferred capabilities.
+- [Troubleshooting](docs/TROUBLESHOOTING.md): installation, presets, browser, Vision and provider problems.
+- [Development](docs/DEVELOPMENT.md) and [contributing](CONTRIBUTING.md): local checks and requirements for new capabilities.
+- [Changelog](CHANGELOG.md): changes between preview releases.
+
+Static and packaging checks need no provider key. For a compatibility report, include the DSH and plugin versions, reproduction steps and a redacted error message.
 
 ## License
 

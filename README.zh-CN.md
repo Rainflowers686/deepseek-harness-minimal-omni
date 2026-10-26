@@ -1,25 +1,22 @@
-# Minimal Omni
+<div align="center">
 
-*让 DeepSeek Harness 会话默认精简，并按需启用工具。*
+# **Minimal Omni**
 
-![DeepSeek Harness](https://img.shields.io/badge/DeepSeek-Harness-24292F) ![Plugin](https://img.shields.io/badge/Type-Plugin-0366D6) ![Developer preview](https://img.shields.io/badge/Status-Developer%20preview-6F42C1)
+让 DeepSeek Harness 会话默认保持精简，任务需要时再启用工具。
 
+按需申请浏览器、文档与代码导航能力，任务结束后释放；保留现有模型、provider 和凭据设置。
 
+[![Version](https://img.shields.io/badge/version-0.2.0--preview.2-blue)](CHANGELOG.md) [![MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![DeepSeek Harness](https://img.shields.io/badge/DeepSeek-Harness-24292F)](docs/COMPATIBILITY.md) [![Developer preview](https://img.shields.io/badge/status-developer%20preview-6F42C1)](#兼容性)
 
-**导航：**[为什么使用](#为什么使用它) · [安装](#安装) · [使用](#使用) · [安全提示](#安全提示)
+[English](README.md) · [简体中文](README.zh-CN.md)
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+[安装](#安装) · [使用](#使用) · [能力范围](#能力范围) · [兼容性](#兼容性) · [文档与贡献](#文档与贡献)
 
-让 DeepSeek Harness 默认保持精简。任务需要浏览器、文档或代码导航时，
-Minimal Omni 才为当前会话申请对应能力，完成后再释放。
-
-
-Minimal Omni 是独立的 Developer Preview，不替换官方 Web 应用，也不会改动
-你的 provider、模型或凭据设置。
+</div>
 
 ## 项目状态
 
-开发者预览版。任务需要时，Minimal Omni 才为会话申请浏览器、文档或代码导航能力，完成后再释放。
+Minimal Omni 是独立的开发者预览插件，通过 DSH 的 profile bundle 接口加载，官方 Web 应用继续作为使用入口。当前支持范围和运行时版本见下文。
 
 ## 为什么使用它？
 
@@ -79,9 +76,11 @@ compaction 调参和可选媒体提取属于 Experimental。Vision 取决于所�
 支持图像输入；Web Search 和已授权 GitHub 操作需要另外的 provider/授权。桌面
 自动化、ASR、广义音视频理解和跨 Agent handoff 暂不在范围内。
 
+本包没有把自定义 `0.68` compaction 阈值设为稳定默认值；自动 compaction 调参仍属于 Experimental。
+
 ## 兼容性
 
-已测试运行时为 `dsh-v0.1.2-rc.1`，commit 为
+需要 Node.js 22.19+ 和 PowerShell 7。已测试运行时为 `dsh-v0.1.2-rc.1`，commit 为
 `a66e4702047846cdaa10c66c9d3df3951f5ea70d`。首个正式支持平台是 Windows；尝试
 其它 DSH 构建前请先阅读[兼容性说明](docs/COMPATIBILITY.md)。
 
@@ -97,10 +96,16 @@ compaction 调参和可选媒体提取属于 Experimental。Vision 取决于所�
 更多信息见 [SECURITY.md](docs/SECURITY.md) 和
 [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)。
 
-## 开发
+<a id="开发"></a>
 
-维护者请阅读 [DEVELOPMENT.md](docs/DEVELOPMENT.md)。静态检查和打包检查不需要
-provider key。
+## 文档与贡献
+
+- [能力分层矩阵](docs/CAPABILITY_MATRIX_CN.md)：区分已验证、条件支持、实验性与暂缓能力。
+- [故障排查](docs/TROUBLESHOOTING.md)：安装、preset、浏览器、Vision 和 provider 问题。
+- [开发说明](docs/DEVELOPMENT.md)与[贡献指南](CONTRIBUTING.md)：本地检查和新增能力的要求。
+- [更新日志](CHANGELOG.md)：预览版本的变化。
+
+静态检查和打包检查不需要 provider key。兼容性反馈请附 DSH 与插件版本、复现步骤和脱敏后的错误信息。
 
 ## 许可证
 
